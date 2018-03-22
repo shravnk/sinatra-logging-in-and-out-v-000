@@ -14,6 +14,9 @@ class ApplicationController < Sinatra::Base
     if @user = User.find_by(username: params[:username])
       session[:id] = @user.id
       redirect '/account'
+    else
+      redirect '/'
+    end
   end
 
   get '/account' do
